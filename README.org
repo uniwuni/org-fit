@@ -26,7 +26,7 @@ It should output a newline-separated list of clock entries between the time give
 current time.
 
 * Usage
-First, you need to specify the ID of the entry the clock times should be added to src_elisp{org-fit-id}
+First, you need to specify the ID of the entry the clock times should be added to in src_elisp{org-fit-id},
 as well as the executable name in src_elisp{org-fit-executable}.
 Make sure the entry in question is part of your agenda files and has a property src_org{:LAST_UPDATED:} with an inactive timestamp as its value.
 From there on, you can run src_elisp{org-fit-update} to add new time spans to the logbook drawer.
