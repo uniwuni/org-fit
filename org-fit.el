@@ -21,7 +21,8 @@
 (require 'org-id)
 (require 'ts)
 (require 'org)
-(defvar org-fit-id "FIT_DATA")
+(defcustom org-fit-id "FIT_DATA" "ID property of the entry the clock data should be added to." :group 'org-fit :type 'string)
+(defcustom org-fit-executable "get-fit" "Executable called to retrieve the clock data." :group 'org-fit :type 'string)
 
 (defun org-fit-get-marker ()
   "Acquire the marker to the fitness data entry."
@@ -64,7 +65,7 @@
   "Update the fitness data."
   (interactive)
   (let ((output (shell-command-to-string
-               (concat "get-fit " "\"" (org-fit-get-updated-utc) "\""))))
+               (concat org-fit-executable " \"" (org-fit-get-updated-utc) "\""))))
     (if (string= "" output)
         (message "No new data available.")
         (progn (org-fit-insert-clock-entry
