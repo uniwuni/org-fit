@@ -1,0 +1,36 @@
+#+title: org-fit
+* Summary
+This package adds timespans it is given from another executable to a specified todo entry clock.
+* Installation
+For straight:
+#+BEGIN_SRC elisp
+(package! org-fit :recipe (:host github :repo "uniwuni/org-fit"))
+#+END_SRC
+Otherwise, just add the elisp file to your load path and run
+#+begin_src emacs-lisp
+(require 'org-fit)
+#+end_src
+or something along these lines.
+
+You also need another executable (consider [[https://github.com/uniwuni/org-fit-hs][org-fit-hs]] for Google Fit integration, at least if you are willing to put in a little effort) that can be called along the lines of the following:
+#+BEGIN_SRC bash :results verbatim
+get-fit "2022-11-15 12:20:00 UTC"
+#+END_SRC
+
+#+RESULTS:
+: CLOCK: [2022-11-15 12:56:14]--[2022-11-15 13:22:04]
+: CLOCK: [2022-11-15 13:23:49]--[2022-11-15 13:39:13]
+: CLOCK: [2022-11-15 18:07:16]--[2022-11-15 18:14:57]
+
+It should output a newline-separated list of clock entries between the time given by the argument and the
+current time.
+
+* Usage
+First, you need to specify the ID of the entry the clock times should be added to src_elisp{org-fit-id}
+as well as the executable name in src_elisp{org-fit-executable}.
+Make sure the entry in question is part of your agenda files and has a property src_org{:LAST_UPDATED:} with an inactive timestamp as its value.
+From there on, you can run src_elisp{org-fit-update} to add new time spans to the logbook drawer.
+
+* Motivation
+This was originally meant for Google Fit API connections - I am using an org task to track walks and hikes,
+so doing this automatically saves a lot of effort.
