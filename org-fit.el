@@ -1,22 +1,20 @@
-;;; org-fit.el --- Description -*- lexical-binding: t; -*-
+;;; org-fit.el --- Google fit in org mode -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (C) 2022 Uni Marx
 ;;
-;; Author: Uni Marx <uniwuni@protonmail.com
-;; Maintainer: Uni Marx <uniwuni@protonmail.com>
+;; Author: Uni Marx <uniwuni@protonmail.com>
 ;; Created: November 14, 2022
 ;; Modified: November 14, 2022
 ;; Version: 0.0.1
 ;; Keywords: data outlines
-;; Homepage: https://github.com/uniwuni
-;; Package-Requires: ((emacs "27.1"))
+;; Homepage: https://github.com/uniwuni/org-fit
+;; Package-Requires: ((emacs "27.1") (ts "0.2.0"))
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; Commentary:
-;;
-;;  Description
-;;
+;; This package provides tools to automatically integrate clock data somehow retrieved
+;; from Google Fit or other APIs.
 ;;; Code:
 ;;;
 
